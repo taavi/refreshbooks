@@ -2,7 +2,7 @@ import requests
 
 class Transport(object):
     def __init__(self, url, headers_factory):
-        self.client = requests
+        self.client = requests.session()
         self.url = url
         self.headers_factory = headers_factory
     
@@ -14,6 +14,6 @@ class Transport(object):
             data=entity
         )
         if resp.status_code >= 400:
-            raise TransportException(resp.status, content)
+            raise TransportException(resp.status_code, resp.content)
         
         return resp.content

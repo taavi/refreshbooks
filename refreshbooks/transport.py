@@ -13,7 +13,7 @@ transport = None
 try:
     from refreshbooks.transports import use_requests as transport
 except ImportError:
-    raise
+    pass
 
 if transport is None:
     try:
@@ -23,7 +23,7 @@ if transport is None:
 
 if transport is None:
     import warnings
-    warnings.warn("Unable to load requests or httplib2 transports   , falling back to urllib2. SSL cert verification disabled.")
+    warnings.warn("Unable to load requests or httplib2 transports, falling back to urllib2. SSL cert verification disabled.")
     from refreshbooks.transports import use_urllib2 as transport
 
 class TokenAuthorization(object):
