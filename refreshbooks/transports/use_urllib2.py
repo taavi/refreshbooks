@@ -1,3 +1,4 @@
+from refreshbooks.transports.exceptions import TransportException
 import urllib2 as u
 
 class Transport(object):

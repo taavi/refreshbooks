@@ -1,3 +1,4 @@
+from refreshbooks.transports.exceptions import TransportException
 import httplib2
 
 class Transport(object):
